@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package greet;
+
+option java_package = "com.proto.greet";
+option java_multiple_files = true; // create multiple java files
+
+message Greeting {
+    string first_name = 1;
+    string last_name = 2;
+}
+
+// 요청에 사용되기 때문에 뒤에 Request를 붙인다 (coding convention)
+message GreetRequest {
+    Greeting greeting = 1;
+}
+
+// 응답에 사용되기 때문에 뒤에 Response를 붙인다 (coding convention)
+message GreetResponse {
+    string result = 1;
+}
+
+// service는 뒤에 Service를 붙인다 (coding convention)
+service GreetService {
+    // Unary
+    rpc Greet(GreetRequest) returns (GreetResponse) {}; // 나중을 위해서 {}를 꼭 붙여준다
+}
