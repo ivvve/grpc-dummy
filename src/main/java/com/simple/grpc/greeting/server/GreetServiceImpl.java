@@ -8,6 +8,11 @@ import io.grpc.stub.StreamObserver;
 
 public class GreetServiceImpl extends GreetServiceGrpc.GreetServiceImplBase {
 
+    /**
+     * rpc Greet(GreetRequest) returns (GreetResponse) {}; 에 해당
+     * @param request
+     * @param responseObserver
+     */
     @Override
     public void greet(GreetRequest request, StreamObserver<GreetResponse> responseObserver) {
         // extract data from request

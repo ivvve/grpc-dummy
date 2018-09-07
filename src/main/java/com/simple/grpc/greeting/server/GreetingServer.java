@@ -11,6 +11,7 @@ public class GreetingServer {
         System.out.println("Hello gRPC");
 
         Server greetingServer = ServerBuilder.forPort(8888)
+                                                .addService(new GreetServiceImpl()) //service 등록
                                                 .build();
 
         greetingServer.start();
